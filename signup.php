@@ -1,5 +1,5 @@
 <?php
-	require_once('includes/layout/header.php');
+require_once('includes/layout/header.php');
 
 if(isset($_POST['submit']))
 {

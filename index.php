@@ -1,5 +1,4 @@
 <?php
-session_start();
 require "includes/layout/header.php";
 
 if(isset($_GET['rechercher']))

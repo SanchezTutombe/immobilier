@@ -1,5 +1,5 @@
 <?php
-session_start(); require "includes/layout/header.php";
+require "includes/layout/header.php";
 ?>
 
 <form action="#" method="post" class="row col-md-3 m-auto border p-3">
