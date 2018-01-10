@@ -11,9 +11,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Export de la structure de la base pour agenceimmo
-DROP DATABASE IF EXISTS `agenceimmo`;
-CREATE DATABASE IF NOT EXISTS `agenceimmo` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `agenceimmo`;
+DROP DATABASE IF EXISTS `immobilier`;
+CREATE DATABASE IF NOT EXISTS `immobilier` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `immobilier`;
 
 
 -- Export de la structure de table agenceimmo. adverts
