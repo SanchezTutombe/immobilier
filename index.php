@@ -1,10 +1,7 @@
 <?php
 session_start();
 require "includes/layout/header.php";
-?>
 
-
-<?php
 if(isset($_GET['rechercher']))
 {
     $recherche = $_GET['recherche'];
