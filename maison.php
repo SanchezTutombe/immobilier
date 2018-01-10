@@ -6,7 +6,7 @@
 <div class="d-flex flex-row raw col flex-wrap">
     <?php
         
-        $categoriesQuery = $dbh->query("SELECT * FROM biens ORDER BY nom ASC");
+        $categoriesQuery = $dbh->query("SELECT * FROM adverts ORDER BY title ASC");
         $categories = $categoriesQuery->fetchAll();
     
         
@@ -14,7 +14,7 @@
             
             echo"
                 <a href=\"profilmaison.php?biens=".$category['id']."\" class=\"col-md-2 mt-3\">
-                    <img src=\"img/upload/biens/".$category['image']."\" alt=\"".$category['nom']."\" title=\"".$category['nom']."\" class=\"img-thumbnail img-fluid\">
+                    <img src=\"img/upload/biens/".$category['picture']."\" alt=\"".$category['title']."\" title=\"".$category['title']."\" class=\"img-thumbnail img-fluid\">
                 </a>
             ";
         }
