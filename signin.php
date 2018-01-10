@@ -8,17 +8,17 @@ session_start(); require "includes/layout/header.php";
 
 if(isset($_POST['login']))
 {
-    $login = $_POST['login'];
+    $login = htmlentities($_POST['login']);
 
-    $requete = $dbh->query("SELECT * FROM utilisateur WHERE login = '$login' LIMIT 1");
+    $requete = $dbh->prepare("SELECT * FROM users WHERE pseudo = :login LIMIT 1");
+    $requete->bindValue(':login', $login, PDO::PARAM_STR);
+    $requete->execute();
     $reponse = $requete->fetch(PDO::FETCH_ASSOC);
 
-    if(password_verify($_POST['mdp'], $reponse['password']))
+    if(password_verify($_POST['password'], $reponse['password']))
     {
-        if (!$reponse['banned']) {
-            $_SESSION['Users'] = $reponse;
-            header("Location:index.php");
-        }
+        $_SESSION['Users'] = $reponse;
+        header("Location:index.php");
     }
     echo '<div class="alert alert-danger text-center col" role="alert">Connection impossible</div>';
 }
@@ -30,7 +30,7 @@ if(isset($_POST['login']))
    
     <form class="form-signin">       
       <h2 class="form-signin-heading">Connectez vous </h2>
-      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+      <input type="text" class="form-control" name="login" placeholder="Email Address" required="" autofocus="" />
 <br>
       <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
 <br>  
