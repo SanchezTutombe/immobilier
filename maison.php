@@ -1,0 +1,25 @@
+<?php
+    require_once('includes/layout/header.php');
+    require_once ('includes/database.php');
+?>
+
+<div class="d-flex flex-row raw col flex-wrap">
+    <?php
+        
+        $categoriesQuery = $dbh->query("SELECT * FROM biens ORDER BY nom ASC");
+        $categories = $categoriesQuery->fetchAll();
+    
+        
+       foreach ($categories as $category) {
+            
+            echo"
+                <a href=\"profilmaison.php?biens=".$category['id']."\" class=\"col-md-2 mt-3\">
+                    <img src=\"img/upload/biens/".$category['image']."\" alt=\"".$category['nom']."\" title=\"".$category['nom']."\" class=\"img-thumbnail img-fluid\">
+                </a>
+            ";
+        }
+    ?>
+</div>
+
+
+<?php require_once('includes/layout/footer.php'); ?>
